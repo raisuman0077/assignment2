@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react";
+import Increment from "./increment";
+
 
 function App() {
+ const [num, setNum] = useState(10);
+ 
+ const handleClick = (d) => {
+  setNum(num+d);
+ };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <div className="number">
+        <i>The number is: {num}</i>
     </div>
+      < Increment inc={handleClick} />
+    </>
   );
 }
 
